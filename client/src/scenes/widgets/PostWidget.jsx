@@ -45,7 +45,7 @@ import {
     const primary = palette.primary.main;
 //   deals with likes
     const patchLike = async () => {
-      const response = await fetch(`http://localhost:8080/posts/${postId}/like`, {
+      const response = await fetch(`https://socialpulse-f8bt.onrender.com/posts/${postId}/like`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -63,7 +63,7 @@ import {
     }
     const patchComment=async(C)=>{
       addComment(C);
-      const response = await fetch(`http://localhost:8080/posts/${postId}/comment`, {
+      const response = await fetch(`https://socialpulse-f8bt.onrender.com/posts/${postId}/comment`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -104,7 +104,7 @@ import {
             height="auto"
             alt="post"
             style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-            src={`http://localhost:8080/assets/${picturePath}`}
+            src={`https://socialpulse-f8bt.onrender.com/assets/${picturePath}`}
           />
         )}
         <FlexBetween mt="0.25rem">
