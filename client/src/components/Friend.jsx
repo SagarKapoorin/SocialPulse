@@ -24,7 +24,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 // in case add or remove friends
   const patchFriend = async () => {
     const response = await fetch(
-      `https://socialpulse-f8bt.onrender.com/users/${_id}/${friendId}`,
+      `http://localhost:8080/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

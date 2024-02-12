@@ -14,7 +14,7 @@ const FriendListWidget = ({ userId }) => {
 // getting friends
   const getFriends = async () => {
     const response = await fetch(
-      `https://socialpulse-f8bt.onrender.com/users/${userId}/friends`,
+      `http://localhost:8080/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

@@ -10,7 +10,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const token = useSelector((state) => state.token);
 // WE ARE GETTING ALL THE POSTS
   const getPosts = async () => {
-    const response = await fetch("https://socialpulse-f8bt.onrender.com/posts", {
+    const response = await fetch("http://localhost:8080/posts", {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -20,7 +20,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `https://socialpulse-f8bt.onrender.com/posts/${userId}/posts`,
+      `http://localhost:8080/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
