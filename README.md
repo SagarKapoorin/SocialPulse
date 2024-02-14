@@ -29,11 +29,10 @@ SocialPulse is a MERN stack project that provides a social media platform where 
 ## Features
 
 - User authentication (login/signup)
-- Create, read, update, and delete posts
+- Create, read, update posts
 - Add comments to posts
 - Like posts
 - Add friends
-- Share posts on other social media platforms
 - FAQ page
 - Contact us page
 - Dark to light theme change feature
