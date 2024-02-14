@@ -1,22 +1,20 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import HomePage from "./scenes/homePage";
-import LoginPage from "./scenes/loginpage";
-import ProfilePage from "./scenes/profilePage";
+import FAQ from "./scenes/faq";
+import Contact from "./scenes/contact";
+import HomePage from "scenes/homePage";
+import LoginPage from "scenes/loginPage";
+import ProfilePage from "scenes/profilePage";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
-import Contact from "./scenes/contact/contact";
-import FAQ from "./scenes/faq/Faq";
-
 function App() {
   const mode = useSelector((state) => state.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
-
-  return (
-    <div className="app">
+return(
+<div className="app">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />

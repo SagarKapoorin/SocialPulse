@@ -1,39 +1,36 @@
-// SINGLE POST STRUCTURE TO BE USE IN POSTSWIDGET.JSX
 import {
-    ChatBubbleOutlineOutlined,
-    FavoriteBorderOutlined,
-    FavoriteOutlined,
-    ShareOutlined,
-  } from "@mui/icons-material";
-  import Stack from '@mui/material/Stack';
-  import AddCommentIcon from '@mui/icons-material/AddComment';
-  import Button from '@mui/material/Button';
-  import TextField from '@mui/material/TextField';
-  import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
-  import ShareC from "../../components/Share";
-  import FlexBetween from "../../components/FlexBetween";
-  import Friend from "../../components/Friend";
-  import WidgetWrapper from "../../components/WidgetWrapper";
-  import { useState } from "react";
-  import { useDispatch, useSelector } from "react-redux";
-  import { setPost } from "../../state";
-  
-  const PostWidget = ({
-    postId,
-    postUserId,
-    name,
-    description,
-    location,
-    picturePath,
-    userPicturePath,
-    likes,
-    comments,
-  }) => {
-    const [isComments, setIsComments] = useState(false);   //if person want to see comments
+  ChatBubbleOutlineOutlined,
+  FavoriteBorderOutlined,
+  FavoriteOutlined,
+  ShareOutlined,
+} from "@mui/icons-material";
+import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
+import FlexBetween from "components/FlexBetween";
+import Friend from "components/Friend";
+import Stack from '@mui/material/Stack';
+import AddCommentIcon from '@mui/icons-material/AddComment';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import WidgetWrapper from "components/WidgetWrapper";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPost } from "state";
+
+const PostWidget = ({
+  postId,
+  postUserId,
+  name,
+  description,
+  location,
+  picturePath,
+  userPicturePath,
+  likes,
+  comments,
+}) => {
+  const [isComments, setIsComments] = useState(false);   //if person want to see comments
     const [Comment, SetComment]=useState(comments);
     const [inputValue, setInputValue] = useState('');
     const [newComment, SetnewComment]=useState(false);
-    const [isShare, setIsShare]=useState(false);
     const dispatch = useDispatch();
     const token = useSelector((state) => state.token);
     const loggedInUserId = useSelector((state) => state.user._id);
@@ -45,7 +42,7 @@ import {
     const primary = palette.primary.main;
 //   deals with likes
     const patchLike = async () => {
-      const response = await fetch(`http://localhost:8080/posts/${postId}/like`, {
+      const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -63,7 +60,7 @@ import {
     }
     const patchComment=async(C)=>{
       addComment(C);
-      const response = await fetch(`http://localhost:8080/posts/${postId}/comment`, {
+      const response = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -104,7 +101,7 @@ import {
             height="auto"
             alt="post"
             style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-            src={`http://localhost:8080/assets/${picturePath}`}
+            src={`http://localhost:3001/assets/${picturePath}`}
           />
         )}
         <FlexBetween mt="0.25rem">
@@ -132,7 +129,7 @@ import {
           </FlexBetween>
   
           <IconButton>
-            <ShareOutlined  onClick={() => setIsShare(!isShare)}/>
+            <ShareOutlined  />
           </IconButton>
   
           
@@ -161,7 +158,6 @@ import {
              </form>
             </Box>
         }
-        {isShare && <ShareC/>}
       </WidgetWrapper>
     );
   };

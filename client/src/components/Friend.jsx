@@ -1,12 +1,11 @@
-// it will show friend list
 import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setFriends } from "../state";
+import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
-// no need to make API CALL since we have it in redux storage user.friends
+
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,10 +20,10 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const medium = palette.neutral.medium;
 
   const isFriend = friends.find((friend) => friend._id === friendId);
-// in case add or remove friends
+
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:8080/users/${_id}/${friendId}`,
+      `http://localhost:3001/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
@@ -34,7 +33,6 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       }
     );
     const data = await response.json();
-    // updating redux
     dispatch(setFriends({ friends: data }));
   };
 
@@ -42,11 +40,9 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     <FlexBetween>
       <FlexBetween gap="1rem">
         <UserImage image={userPicturePath} size="55px" />
-        {/* THERE IS BUG THAT IF I GO TO SOMEONE PROFILE PAGE TO SOMEOTHER PAGE  URL UPDATED BUT STATE IS NOT RE RENDING */}
         <Box
           onClick={() => {
             navigate(`/profile/${friendId}`);
-            // TO SOLVE ABOVE BUG I TRIED TO RELOAD THE PAGE
             navigate(0);
           }}
         >

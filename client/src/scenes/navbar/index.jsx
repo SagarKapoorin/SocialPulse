@@ -18,12 +18,12 @@ import {
   Menu,
   Close,
 } from "@mui/icons-material";
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 import HouseIcon from '@mui/icons-material/House';
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "../../state";
-import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
-import FlexBetween from "../../components/FlexBetween";
+import FlexBetween from "components/FlexBetween";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);

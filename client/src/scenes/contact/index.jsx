@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Header from "../../Components/Header";
+import Header from "components/Header";
 import Navbar from "../navbar/index";
 
 const Contact = () => {
@@ -113,7 +113,7 @@ const Contact = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.address2}
-                name="message"
+                name="address2"
                 error={!!touched.address2 && !!errors.address2}
                 helperText={touched.address2 && errors.address2}
                 sx={{ gridColumn: "span 4" }}

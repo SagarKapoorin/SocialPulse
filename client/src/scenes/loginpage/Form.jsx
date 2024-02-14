@@ -12,9 +12,9 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../../state";
+import { setLogin } from "state";
 import Dropzone from "react-dropzone";
-import FlexBetween from "../../components/FlexBetween";
+import FlexBetween from "components/FlexBetween";
 
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -58,14 +58,13 @@ const Form = () => {
   const register = async (values, onSubmitProps) => {
     // this allows us to send form info with image
     const formData = new FormData();
-    // it says we have to manually add values for picture url to be added in picture path
     for (let value in values) {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "http://localhost:8080/auth/register",
+      "http://localhost:3001/auth/register",
       {
         method: "POST",
         body: formData,
@@ -80,7 +79,7 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("http://localhost:8080/auth/login", {
+    const loggedInResponse = await fetch("http://localhost:3001/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -97,7 +96,7 @@ const Form = () => {
       navigate("/home");
     }
   };
-// on submit helps in reseting value after submission
+
   const handleFormSubmit = async (values, onSubmitProps) => {
     if (isLogin) await login(values, onSubmitProps);
     if (isRegister) await register(values, onSubmitProps);
@@ -180,7 +179,6 @@ const Form = () => {
                   borderRadius="5px"
                   p="1rem"
                 >
-                    {/* DROPZONE HELPS IN SETTING UP FILE */}
                   <Dropzone
                     acceptedFiles=".jpg,.jpeg,.png"
                     multiple={false}
@@ -188,7 +186,6 @@ const Form = () => {
                       setFieldValue("picture", acceptedFiles[0])
                     }
                   >
-                    {/* CRAZY SYTAX  -- CHECK DOCUMENTATION */}
                     {({ getRootProps, getInputProps }) => (
                       <Box
                         {...getRootProps()}
