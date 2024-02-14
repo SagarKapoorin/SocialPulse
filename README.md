@@ -38,10 +38,6 @@ SocialPulse is a MERN stack project that provides a social media platform where 
 - Contact us page
 - Dark to light theme change feature
 
-## Live Demo
-
-[Check out the live demo here!](https://curious-sopapillas-f101df.netlify.app/)
-
 ## Getting Started
 
 To get a local copy up and running follow these simple steps:
@@ -60,7 +56,7 @@ To get a local copy up and running follow these simple steps:
 7. cd client
 8. Start the client
    ```sh
-   npm run dev
+   npm start
    ```
    
 ## License
