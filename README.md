@@ -53,7 +53,7 @@ To get a local copy up and running follow these simple steps:
    ```
 6. cd ..
 7. cd client
-8. Start the client
+8. Start the client (it take a long time)
    ```sh
    npm start
    ```
