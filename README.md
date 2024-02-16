@@ -1,7 +1,8 @@
 # SocialPulse
 
 SocialPulse is a MERN stack project that provides a social media platform where users can make posts, add comments, share pictures, login/signup, like posts, add friends, and more. It also includes additional features such as a FAQ page, a contact us page, and a dark to light theme change feature.
-
+## How to Use
+Check Out this [Video](https://www.linkedin.com/feed/update/urn:li:activity:7163533168443162624/)
 ## Technologies Used
 
 - React.js
