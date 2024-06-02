@@ -43,7 +43,7 @@ Check Out this [Video](https://www.linkedin.com/feed/update/urn:li:activity:7163
 To get a local copy up and running follow these simple steps:
 
 1. Clone the repository
-3. Install dependencies
+3. Install dependencies in both server and client in one by one.
    ```sh
    npm install
    ```
